@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function PlayerComponent(props) {
 
@@ -8,16 +9,16 @@ function PlayerComponent(props) {
 
         <div key={player._id} className="card">
 
-            <a href="/player">
+            <Link to={`/player/${player._id}`}>
                 <img className="medium" src={player.image} alt="d1" />
-            </a>
+            </Link>
 
             <div className="card-body">
 
-                <a href="/player">
+                <Link to={`/player/${player._id}`}>
                     <h2>{player.name}</h2>
-                </a>
-
+                </Link>
+                
                 <div className="profile">
                     <h2>{player.category}</h2>
                     <h3>{player.country}</h3>
