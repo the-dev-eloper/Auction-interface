@@ -57,10 +57,10 @@ function PlayerScreen(props) {
                                 <div className="row">
                                     <div>Status</div>
                                     <div>
-                                        {player.soldTo === "Yet to buy" ? (
+                                        {player.soldTo === 'Yet to buy' ? (
                                             <span className="success">Available</span>
                                         ) : (
-                                            <span className="error">Unavailable</span>
+                                            <span className="danger">Unavailable</span>
                                         )}
                                     </div>
                                 </div>

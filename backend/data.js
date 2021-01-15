@@ -12,7 +12,7 @@ const data = {
             international: 'capped',
             ranking: 1,
             description: 'Indian Captain',
-            soldTo: 'Yet to buy'
+            soldTo: 'RCB'
         },
 
         {
