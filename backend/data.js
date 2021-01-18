@@ -8,6 +8,7 @@ const data = {
             category: 'Batsmen',
             image: '/images/d1.png',
             basePrice: 2,
+            sellPrice: 17,
             country: 'India',
             international: 'capped',
             ranking: 1,
@@ -21,11 +22,12 @@ const data = {
             category: 'Keeper',
             image: '/images/d2.png',
             basePrice: 2,
+            sellPrice: 15,
             country: 'India',
             international: 'retired',
             ranking: 0,
             description: 'Ex Indian Captain',
-            soldTo: 'Yet to buy'
+            soldTo: 'CSK'
         },
 
         {
@@ -34,6 +36,7 @@ const data = {
             category: 'Batsmen',
             image: '/images/d3.png',
             basePrice: 2,
+            sellPrice: 2,
             country: 'India',
             international: 'capped',
             ranking: 2,
@@ -47,6 +50,7 @@ const data = {
             category: 'Batsmen',
             image: '/images/d4.png',
             basePrice: 1.5,
+            sellPrice: 1.5,
             country: 'England',
             international: 'overseas',
             ranking: 3,
@@ -60,6 +64,7 @@ const data = {
             category: 'Batsmen',
             image: '/images/d5.png',
             basePrice: 1.5,
+            sellPrice: 1.5,
             country: 'Australia',
             international: 'overseas',
             ranking: 4,
@@ -73,6 +78,7 @@ const data = {
             category: 'Batsmen',
             image: '/images/d6.png',
             basePrice: 2,
+            sellPrice: 2,
             country: 'Australia',
             international: 'overseas',
             ranking: 5,

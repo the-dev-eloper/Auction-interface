@@ -25,6 +25,7 @@ function App() {
       </header>
 
       <main>
+        {/* <Route path="/cart/:id?" component={CartScreen}></Route> */}
         <Route path="/player/:id" component={PlayerScreen} />
         <Route path="/" component={HomeScreen} exact />
       </main>
