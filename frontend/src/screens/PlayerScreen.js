@@ -13,14 +13,16 @@ function PlayerScreen(props) {
     const { loading, error, player } = playerDetails;
 
     const [ sellPrice, setSellPrice ] = useState()
-    const [ soldTo, setSoldTo ] = useState(['CSK', 'DC', 'MI', 'RCB'])
+    const [ soldTo, setSoldTo ] = useState("")
+
+    const teams = ["CSK", "DC", "KKR", "KXIP", "MI", "RCB", "RR", "SRH"]
 
     useEffect(() => {
         dispatch(detailsPlayer(playerId));
     }, [dispatch, playerId]);
 
     const bidToCartHandler = () => {
-        props.history.push(`/cart/${playerId}?qty=${sellPrice}`)
+        props.history.push(`/cart/${playerId}?sold=${sellPrice}`)
     }
 
     return (
@@ -92,36 +94,14 @@ function PlayerScreen(props) {
                                                 {player.soldTo === 'Yet to buy' ? (
                                                     <select
                                                         value={soldTo}
-                                                        onChange={(e) => setSoldTo(e.target.value)}
+                                                        onChange={e => setSoldTo(e.target.value)}
                                                     >
                                                         {
-                                                            soldTo.map((team, index) => (
-                                                                <option key={index} value={team}>{team}</option>
+                                                            teams.map((team, index) => (
+                                                                <option key={index} value={team[index]}>{team}</option>
                                                             ))
-                                                            // for (i = 0; i < soldTo.length; i++) {
-                                                            //     <option value={soldTo[i]}></option>
-                                                            // }
-
-                                                            // soldTo.map(item => <option
-                                                            //     key={item.id}
-                                                            //     value={soldTo[item.value]}
-                                                            // >
-                                                            //     {soldTo[item.name]}
-                                                            // </option>)                                        
-
-                                                            // [...Array(soldTo)].map(
-                                                            //     (x) => (
-                                                            //         <option key={x} value={soldTo[x]}>
-                                                            //             {soldTo[x]}
-                                                            //         </option>
-                                                            //     ))
                                                         }
-                                                                {/* <option>CSK</option>
-                                                                    <option>RCB</option>
-                                                                <option>MI</option> */}
-                                                            {/* } */}
-                                                        </select>
-                                                    
+                                                    </select>
                                                 ) : (
                                                     <span className="success">{player.soldTo}</span>
                                                 )}
