@@ -26,7 +26,7 @@ export const playerDetailsReducer = (
         case PLAYER_DETAILS_SUCCESS:
             return { loading: false, player: action.payload };
         case PLAYER_DETAILS_FAIL:
-            return { loading: false, error: action.error };
+            return { loading: false, error: action.payload };
         default:
             return state
     }

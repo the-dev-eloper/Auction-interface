@@ -12,7 +12,7 @@ function PlayerScreen(props) {
     const playerDetails = useSelector((state) => state.playerDetails);
     const { loading, error, player } = playerDetails;
 
-    const [ sellPrice, setSellPrice ] = useState()
+    const [ sellPrice, setSellPrice ] = useState("")
     const [ soldTo, setSoldTo ] = useState("")
 
     const teams = ["CSK", "DC", "KKR", "KXIP", "MI", "RCB", "RR", "SRH"]
@@ -98,7 +98,7 @@ function PlayerScreen(props) {
                                                     >
                                                         {
                                                             teams.map((team, index) => (
-                                                                <option key={index} value={team[index]}>{team}</option>
+                                                                <option key={index} value={team[index + 1]}>{team}</option>
                                                             ))
                                                         }
                                                     </select>
