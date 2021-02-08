@@ -1,9 +1,25 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+
+    users: [
+        {
+            name: 'Gokul',
+            email: 'imgnath28@gmail.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: true,
+        },
+        {
+            name: 'Naveen',
+            email: 'naveen@gmail.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: false,
+        },
+    ],
 
     players: [
 
         {
-            _id: 1,
             name: 'Virat Kohli',
             category: 'Batsmen',
             image: '/images/d1.png',
@@ -17,7 +33,6 @@ const data = {
         },
 
         {
-            _id: 2,
             name: 'MS Dhoni',
             category: 'Keeper',
             image: '/images/d2.png',
@@ -31,7 +46,6 @@ const data = {
         },
 
         {
-            _id: 3,
             name: 'Rohit Sharma',
             category: 'Batsmen',
             image: '/images/d3.png',
@@ -45,7 +59,6 @@ const data = {
         },
 
         {
-            _id: 4,
             name: 'Eoin Morgan',
             category: 'Batsmen',
             image: '/images/d4.png',
@@ -59,7 +72,6 @@ const data = {
         },
 
         {
-            _id: 5,
             name: 'Steve Smith',
             category: 'Batsmen',
             image: '/images/d5.png',
@@ -73,7 +85,6 @@ const data = {
         },
 
         {
-            _id: 6,
             name: 'David Warner',
             category: 'Batsmen',
             image: '/images/d6.png',
