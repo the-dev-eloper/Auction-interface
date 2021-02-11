@@ -1,9 +1,9 @@
 import express from 'express';
-import data from './data.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routers/userRouter.js';
 import playerRouter from './routers/playerRouter.js'
+import orderRouter from './routers/orderRouter.js';
 
 dotenv.config()
 
@@ -17,23 +17,9 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/auction', {
     useCreateIndex: true,
 });
 
-// app.get('/api/players', (req,res) => {
-//     res.send(data.players);
-// });
-
-// app.get('/api/players/:id', (req, res) => {
-
-//     const player = data.players.find((x) => x._id == req.params.id);
-
-//     if (player) {
-//         res.send(player);
-//     } else {
-//         res.status(404).send({ message: 'player Not Found' });
-//     }
-// });
-
 app.use('/api/users', userRouter);
 app.use('/api/players', playerRouter);
+app.use('/api/orders', orderRouter);
 
 app.get('/', (req,res) => {
     res.send('Server is ready');
