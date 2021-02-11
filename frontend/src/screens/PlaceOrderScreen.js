@@ -14,12 +14,8 @@ export default function PlaceOrderScreen(props) {
     const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
 
     cart.itemsPrice = toPrice(
-        cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
+        cart.cartItems.reduce((a, c) => a + c.sellPrice, 0)
     );
-
-    cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
-    cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
-    cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
     const placeOrderHandler = () => {
         // TODO: dispatch place order action
@@ -59,7 +55,7 @@ export default function PlaceOrderScreen(props) {
                             <h2>Order Items</h2>
                             <ul>
                                 {cart.cartItems.map((item) => (
-                                    <li key={item.product}>
+                                    <li key={item.player}>
                                         <div className="row">
                                             <div>
                                                 <img
@@ -70,13 +66,13 @@ export default function PlaceOrderScreen(props) {
                                             </div>
 
                                             <div className="min-30">
-                                                <Link to={`/product/${item.product}`}>
+                                                <Link to={`/player/${item.player}`}>
                                                     {item.name}
                                                 </Link>
                                             </div>
 
                                             <div>
-                                                {item.qty} x ${item.price} = ${item.qty * item.price}
+                                                Auctioned Price = Rs. {item.sellPrice} Crores
                                             </div>
                                         </div>
                                     </li>
@@ -95,20 +91,20 @@ export default function PlaceOrderScreen(props) {
                             </li>
                             <li>
                                 <div className="row">
-                                <div>Items</div>
-                                <div>${cart.itemsPrice.toFixed(2)}</div>
+                                <div>Players</div>
+                                <div>{cart.cartItems.length}</div>
                                 </div>
                             </li>
                             <li>
                                 <div className="row">
-                                <div>Shipping</div>
-                                <div>${cart.shippingPrice.toFixed(2)}</div>
+                                <div>Total Amount</div>
+                                <div>{cart.itemsPrice} Crores</div>
                                 </div>
                             </li>
                             <li>
                                 <div className="row">
-                                <div>Tax</div>
-                                <div>${cart.taxPrice.toFixed(2)}</div>
+                                <div>Purse Remaining(after buy)</div>
+                                <div>{ 80 - cart.itemsPrice } Crores</div>
                                 </div>
                             </li>
                             <li>
@@ -117,7 +113,7 @@ export default function PlaceOrderScreen(props) {
                                     <strong> Order Total</strong>
                                 </div>
                                 <div>
-                                    <strong>${cart.totalPrice.toFixed(2)}</strong>
+                                    <strong>Rs. {cart.itemsPrice} Crores</strong>
                                 </div>
                                 </div>
                             </li>
